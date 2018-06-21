@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4b36e3525844a7d8548a8969f0db182" Name="Diagram1">
+        <EntityTypeShape EntityType="DietDBModel.Allergy" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="DietDBModel.Diary" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="DietDBModel.Food" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="DietDBModel.TimeOfMeal" Width="1.5" PointX="3" PointY="9.625" />
+        <EntityTypeShape EntityType="DietDBModel.User" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="DietDBModel.FK_Diary_Food" />
+        <AssociationConnector Association="DietDBModel.FK_Diary_TimeOfMeal" />
+        <AssociationConnector Association="DietDBModel.FK_Diary_User" />
+        <AssociationConnector Association="DietDBModel.Food2Allergy" />
+        <AssociationConnector Association="DietDBModel.User2Allergy" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

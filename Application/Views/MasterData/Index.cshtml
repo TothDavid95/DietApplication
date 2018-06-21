@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Application.Models.Food>
+
+@{
+    ViewBag.Title = "Étel Törzsadatok";
+}
+
+<h2>Étel Törzsadatok</h2>
+<div class="table-responsive pl-2 pr-2">
+    <table class="table text-center">
+        <tr>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Name).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Energy_kJ).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Energy_kcal).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Protein_g).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Fat_g).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Carbohydrate_g).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Sodium_mg).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Potassium_mg).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Calcium_mg).ToString()))
+            </th>
+            <th class="text-center">
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Magnesium_mg).ToString()))
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Energy_kJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Energy_kcal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Protein_g)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fat_g)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carbohydrate_g)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sodium_mg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Potassium_mg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calcium_mg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Magnesium_mg)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

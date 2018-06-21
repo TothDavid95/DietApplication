@@ -1,0 +1,85 @@
+04/06/2018 15:39:01	This log contains information about the import schema operation into project 'DietDB' on computer 'DESKTOP-CHA5RI3' by user 'skywo'.
+04/06/2018 15:39:01	Import of database schema has started.
+04/06/2018 15:39:11	Gathering database credentials
+04/06/2018 15:39:11	Gathering database options
+04/06/2018 15:39:11	Gathering generic database scoped configuration option
+04/06/2018 15:39:11	Gathering users
+04/06/2018 15:39:11	Gathering roles
+04/06/2018 15:39:11	Gathering application roles
+04/06/2018 15:39:11	Gathering role memberships
+04/06/2018 15:39:11	Gathering filegroups
+04/06/2018 15:39:11	Gathering full-text catalogs
+04/06/2018 15:39:11	Gathering assemblies
+04/06/2018 15:39:11	Gathering certificates
+04/06/2018 15:39:11	Gathering asymmetric keys
+04/06/2018 15:39:11	Gathering symmetric keys
+04/06/2018 15:39:11	Gathering encrypted symmetric keys
+04/06/2018 15:39:11	Gathering schemas
+04/06/2018 15:39:11	Gathering XML schema collections
+04/06/2018 15:39:11	Gathering user-defined data types
+04/06/2018 15:39:11	Gathering user-defined types
+04/06/2018 15:39:11	Gathering table types
+04/06/2018 15:39:11	Gathering unique keys for table types
+04/06/2018 15:39:11	Gathering primary keys for table types
+04/06/2018 15:39:11	Gathering indexes for table types
+04/06/2018 15:39:11	Gathering check constraints for table types
+04/06/2018 15:39:11	Gathering default constraints for table types
+04/06/2018 15:39:11	Gathering partition functions
+04/06/2018 15:39:11	Gathering partition schemes
+04/06/2018 15:39:11	Gathering functions
+04/06/2018 15:39:11	Gathering encrypted functions
+04/06/2018 15:39:11	Gathering aggregates
+04/06/2018 15:39:11	Gathering procedures
+04/06/2018 15:39:11	Gathering encrypted procedures
+04/06/2018 15:39:11	Gathering tables
+04/06/2018 15:39:11	Gathering primary keys
+04/06/2018 15:39:11	Gathering unique constraints
+04/06/2018 15:39:11	Gathering foreign keys
+04/06/2018 15:39:11	Gathering default constraints
+04/06/2018 15:39:11	Gathering check constraints
+04/06/2018 15:39:11	Gathering views
+04/06/2018 15:39:11	Gathering encrypted views
+04/06/2018 15:39:11	Gathering indexes
+04/06/2018 15:39:11	Gathering statistics
+04/06/2018 15:39:11	Gathering full-text index stoplists
+04/06/2018 15:39:11	Gathering search property lists
+04/06/2018 15:39:11	Gathering search properties
+04/06/2018 15:39:11	Gathering full-text indexes
+04/06/2018 15:39:11	Gathering column store indexes
+04/06/2018 15:39:11	Gathering spatial indexes
+04/06/2018 15:39:11	Gathering XML indexes
+04/06/2018 15:39:11	Gathering Selective XML indexes
+04/06/2018 15:39:11	Gathering encrypted triggers
+04/06/2018 15:39:11	Gathering triggers
+04/06/2018 15:39:11	Gathering encrypted and clr ddl triggers
+04/06/2018 15:39:11	Gathering ddl triggers
+04/06/2018 15:39:11	Gathering synonyms
+04/06/2018 15:39:11	Gathering defaults
+04/06/2018 15:39:11	Gathering data constraint uddt bindings
+04/06/2018 15:39:11	Gathering rules
+04/06/2018 15:39:11	Gathering data constraint uddt bindings
+04/06/2018 15:39:11	Gathering message types
+04/06/2018 15:39:11	Gathering queues
+04/06/2018 15:39:11	Gathering contracts
+04/06/2018 15:39:11	Gathering services
+04/06/2018 15:39:11	Gathering event notifications
+04/06/2018 15:39:11	Gathering remote service bindings
+04/06/2018 15:39:11	Gathering broker priorities
+04/06/2018 15:39:11	Gathering signatures
+04/06/2018 15:39:11	Gathering data compression options
+04/06/2018 15:39:11	Gathering sequence types
+04/06/2018 15:39:11	Gathering security policies
+04/06/2018 15:39:11	Gather column encryption keys
+04/06/2018 15:39:11	Gathering column master keys
+04/06/2018 15:39:11	Gathering external data sources
+04/06/2018 15:39:11	Gathering external file formats
+04/06/2018 15:39:11	Gathering external tables
+04/06/2018 15:39:11	Gathering extended properties
+04/06/2018 15:39:12	Gathering credentials
+04/06/2018 15:39:12	Gathering logins
+04/06/2018 15:39:12	Gathering server audits
+04/06/2018 15:39:12	Scanning project for duplicate elements
+04/06/2018 15:39:12	Finished duplicate element processing
+04/06/2018 15:39:12	Finished importing database.
+04/06/2018 15:39:12	A summary of the import was saved to the following location: C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\Import Schema Logs\DietDB_20180604013901.log
+04/06/2018 15:39:12	Click Finish to continue...

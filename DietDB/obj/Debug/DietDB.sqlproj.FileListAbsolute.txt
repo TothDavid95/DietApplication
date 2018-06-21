@@ -1,0 +1,10 @@
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\bin\Debug\DietDB.dacpac
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\bin\Debug\DietDB.dll
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\bin\Debug\DietDB.pdb
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\DietDB.dll
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\DietDB.pdb
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\DietDB.sqlprojAssemblyReference.cache
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\Model.xml
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\refactor.xml
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\postdeploy.sql
+C:\Reaktorlabs\2018Spring\Private\dtoth\Projects\DietApplication\DietDB\obj\Debug\predeploy.sql

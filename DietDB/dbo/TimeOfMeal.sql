@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[TimeOfMeal] (
+    [Id]   INT      IDENTITY (1, 1) NOT NULL,
+    [Time] DATETIME NOT NULL,
+    CONSTRAINT [PK_TimeOfMeal] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [UNIQUE_TimeOfMeal_Time] UNIQUE NONCLUSTERED ([Time] ASC)
+);
+
+
+

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Application.Models.ViewModels.DiaryViewModel.ChooseFoodViewModel>
+
+@{
+    ViewBag.Title = "Ételek kiválasztása";
+}
+
+
+<div id="shoppingCartWrapper">
+    <div id="shoppingCart">
+        <span class=" glyphicon glyphicon-cutlery glyphicon-align-center" aria-hidden="true"></span>
+    </div>
+    <ul id="foodHolder" class="scrollbar"></ul>
+</div>
+<body class="table-responsive">
+    <div class="text-center">
+        <h2>Ételek kiválasztása</h2>
+    </div>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Name).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Energy_kJ).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Energy_kcal).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Protein_g).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Fat_g).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Carbohydrate_g).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Sodium_mg).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Potassium_mg).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Calcium_mg).ToString()))
+                </th>
+                <th class="text-center">
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayNameFor(model => model.Food.Magnesium_mg).ToString()))
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="FoodID_@Html.DisplayFor(modelItem => item.Food.Id)" class="Food
+                    @if (item.AllergyList != null)
+                    {
+                        string classes="";
+                        foreach (var allergy in item.AllergyList)
+                        {
+                            classes+= ("AllergyTypeNo"+allergy.Id + " ");
+                        }
+                        if ((Session["allergyIDList"] as IEnumerable<int>).Any(i => item.AllergyList.Select(a=> a.Id).Contains(i))){
+                            classes += "danger-food";
+                        }
+                        <text>@classes</text>;
+                    }
+                    ">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Energy_kJ)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Energy_kcal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Protein_g)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Fat_g)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Carbohydrate_g)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Sodium_mg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Potassium_mg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Calcium_mg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Food.Magnesium_mg)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/Diary/chooseFood.js")
+}

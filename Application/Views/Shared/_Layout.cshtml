@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top mainNav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("8rend", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse bg innerNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "MasterData")">Ételösszesítő</a></li>
+
+                    @if (Session["userID"] != null)
+                    {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;&nbsp;Étrend</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Napló</a></li>
+                            <li><a href="@Url.Action("ChooseFood", "Diary")">Új étkezés felvitele</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="@Url.Action("Details", "Account")"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@Session["username"]</a></li>
+                        <li><a href="@Url.Action("Logout", "Account")"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;Kilépés</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Register", "Account")"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;&nbsp;Regisztráció</a></li>
+                        <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;&nbsp;Belépés</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="display: none; text-align: center;" class="alert alert-danger alert-dismissible @Request.Params["errMessageClass"]">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>@Request.Params["errMessage"]</strong>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <div class="waveWrapper waveAnimation">
+            <div class="waveWrapperInner bgTop">
+                <div class="wave waveTop" style="background-image: url('../../Content/IMG/wave-top.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgMiddle">
+                <div class="wave waveMiddle" style="background-image: url('../../Content/IMG/wave-mid.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgBottom">
+                <div class="wave waveBottom" style="background-image: url('../../Content/IMG/wave-bot.png')"></div>
+            </div>
+        </div>
+        <footer>
+            <div class="text-center">&copy; @DateTime.Now.Year - 8Rend Corporation</div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

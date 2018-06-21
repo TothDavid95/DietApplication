@@ -1,0 +1,64 @@
+﻿@model Application.Models.ViewModels.AccountViewModel.EditViewModel
+
+@{
+    ViewBag.Title = "Felhasználói adatok változtatása";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AccountEditForm" }))
+{
+    @Html.AntiForgeryToken()
+    <h3>@ViewData["SuccessMessage"]</h3>
+    <div class="form-horizontal">
+        <h4>Felhasználó</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="allergyCheckboxes" class="form-group">
+            @{
+                var allergies = ViewData["DefaultAllergies"] as List<Application.Models.Allergy>;
+                var allergyCount = allergies.Count;
+                var userAllergies = Session["allergyIDList"] as List<int>;
+
+                string isChecked;
+                for (int i = 0; i < allergyCount; i++)
+                {
+                    if (userAllergies.Contains(allergies[i].Id))
+                    {
+                        isChecked = "class=checkedCHB checked = checkbox";
+                    }
+                    else
+                    {
+                        isChecked = "";
+                    }
+                    <div class="col-md-10" name="Allergy">
+                        <label class="container checkers">
+                            @allergies[i].Name
+                            <input type="checkbox" @isChecked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="AccountEditFormSubmitter" type="button" value="Változtatások mentése" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Styles.Render("~/Content/Account/edit.css")
+    @Scripts.Render("~/Scripts/Account/edit.js")
+    @Scripts.Render("~/bundles/jqueryval")
+}

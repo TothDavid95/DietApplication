@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DietDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Allergy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FoodId" Type="int" Nullable="false" />
+    <Property Name="Amount_g" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="TimeOfMealId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="Energy_kJ" Type="int" Nullable="false" />
+    <Property Name="Energy_kcal" Type="int" Nullable="false" />
+    <Property Name="Protein_g" Type="int" Nullable="false" />
+    <Property Name="Fat_g" Type="int" Nullable="false" />
+    <Property Name="Carbohydrate_g" Type="int" Nullable="false" />
+    <Property Name="Sodium_mg" Type="int" Nullable="false" />
+    <Property Name="Potassium_mg" Type="int" Nullable="false" />
+    <Property Name="Calcium_mg" Type="int" Nullable="false" />
+    <Property Name="Magnesium_mg" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food2Allergy">
+    <Key>
+      <PropertyRef Name="FoodId" />
+      <PropertyRef Name="AllergyId" />
+    </Key>
+    <Property Name="FoodId" Type="int" Nullable="false" />
+    <Property Name="AllergyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimeOfMeal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User2Allergy">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="AllergyId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AllergyId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Diary_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diary">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diary_TimeOfMeal">
+    <End Role="TimeOfMeal" Type="Self.TimeOfMeal" Multiplicity="1" />
+    <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeOfMeal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diary">
+        <PropertyRef Name="TimeOfMealId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diary_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diary">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food2Allergy_Allergy">
+    <End Role="Allergy" Type="Self.Allergy" Multiplicity="1" />
+    <End Role="Food2Allergy" Type="Self.Food2Allergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Allergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food2Allergy">
+        <PropertyRef Name="AllergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food2Allergy_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="Food2Allergy" Type="Self.Food2Allergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food2Allergy">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User2Allergy_Allergy">
+    <End Role="Allergy" Type="Self.Allergy" Multiplicity="1" />
+    <End Role="User2Allergy" Type="Self.User2Allergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Allergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User2Allergy">
+        <PropertyRef Name="AllergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User2Allergy_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User2Allergy" Type="Self.User2Allergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User2Allergy">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DietDBModelStoreContainer">
+    <EntitySet Name="Allergy" EntityType="Self.Allergy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diary" EntityType="Self.Diary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food2Allergy" EntityType="Self.Food2Allergy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeOfMeal" EntityType="Self.TimeOfMeal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User2Allergy" EntityType="Self.User2Allergy" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Diary_Food" Association="Self.FK_Diary_Food">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="Diary" EntitySet="Diary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diary_TimeOfMeal" Association="Self.FK_Diary_TimeOfMeal">
+      <End Role="TimeOfMeal" EntitySet="TimeOfMeal" />
+      <End Role="Diary" EntitySet="Diary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diary_User" Association="Self.FK_Diary_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Diary" EntitySet="Diary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food2Allergy_Allergy" Association="Self.FK_Food2Allergy_Allergy">
+      <End Role="Allergy" EntitySet="Allergy" />
+      <End Role="Food2Allergy" EntitySet="Food2Allergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food2Allergy_Food" Association="Self.FK_Food2Allergy_Food">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="Food2Allergy" EntitySet="Food2Allergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User2Allergy_Allergy" Association="Self.FK_User2Allergy_Allergy">
+      <End Role="Allergy" EntitySet="Allergy" />
+      <End Role="User2Allergy" EntitySet="User2Allergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User2Allergy_User" Association="Self.FK_User2Allergy_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User2Allergy" EntitySet="User2Allergy" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

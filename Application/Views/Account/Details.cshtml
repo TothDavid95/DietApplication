@@ -1,0 +1,60 @@
+﻿@model Application.Models.User
+
+@{
+    ViewBag.Title = "Felhasználói adatok";
+}
+<body>
+    <div>
+        <h4>@Model.UserName</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            @if (Model.Allergy.Count == 0)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Allergy)
+                </dt>
+                <dd>
+                    Nincs allergia beállítva.
+                </dd>
+            }
+            else
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Allergy)
+                </dt>
+
+                <dd>
+                    <ul>
+                        @foreach (var allergy in Model.Allergy)
+                        {
+
+                            <li>
+                                @allergy.Name
+                            </li>
+                        }
+                    </ul>
+                </dd>
+            }
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Adatok változtatása", "Edit")
+    </p>
+</body>

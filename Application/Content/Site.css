@@ -1,0 +1,270 @@
+﻿:not(span):not(strong) {
+    color: white;
+}
+
+input {
+    color: black;
+}
+
+.mainNav{
+    background-color: rebeccapurple;
+}
+
+li.dropdown:hover{
+    cursor:pointer;
+}
+
+.dropdown a:hover{
+    background-color: lightpink!important;
+}
+
+.dropdown.open > a {
+    background-color: hotpink !important;
+}
+
+.dropdown-menu {
+    background-color: rebeccapurple;
+}
+
+.innerNav ul li a{
+    font-weight: bolder;
+    color: white !important; 
+    text-shadow: 1px 1px deeppink;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    color: white !important;
+    text-shadow: 1px 1px deeppink;
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    padding: 50px 0 20px 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+footer {
+    padding: 0;
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    top: calc(100vh - 20px);
+    left: 0;
+}
+
+footer div {
+    color: deeppink;
+}
+
+.body-content {
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.welcomeMessage {
+    font-family: 'Javanese Text';
+    font-size: 7vh;
+    position: relative;
+    top: 48%;
+    text-shadow: 0 3px deeppink;
+}
+
+.danger-food td{
+    color:indianred;
+    text-shadow: 0 1px white;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.show {
+    display: block !important;
+}
+
+.Food:hover {
+    background-color: rebeccapurple;
+    transition: 0.25s;
+}
+
+.Food td{
+    text-shadow: 0 1px pink;
+}
+
+#shoppingCartWrapper:hover {
+    left: 0;
+}
+
+#shoppingCartWrapper {
+    padding: 3px;
+    box-shadow: 0 3px 3px #000;
+    color: white;
+    background-color: rebeccapurple;
+    min-width: 220px;
+    min-height: 120px;
+    position: fixed;
+    top: 100px;
+    left: -220px;
+    transition: all 0.5s;
+    border-radius: 0 0 10px 0;
+}
+
+#shoppingCart {
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 3px 3px #000;
+    font-size: 28px;
+    padding: 10px;
+    color: #AAA;
+    background-color: rebeccapurple;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+    #shoppingCart a {
+        color: #AAA;
+    }
+
+thead tr th {
+    vertical-align: middle !important;
+}
+
+#foodHolder {
+    margin: 0;
+    padding: 0;
+}
+
+.listedFood {
+    background-color: rebeccapurple;
+    border: black 1px;
+    margin: 1px;
+}
+
+.listedFood:hover {
+    background-color: lightpink;
+    color: darkviolet;
+    cursor: pointer;
+}
+
+.selectedItem {
+    background-color: lightpink;
+}
+
+.selectedItem:hover{
+    background-color: white;
+}
+
+.selectedItem td {
+    color: darkviolet;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: -2;
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, purple 20%, #27273c 80%);
+}
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+
+.bgBottom {
+    z-index: 5;
+}
+
+.bgTop2 {
+    z-index: 15;
+    opacity: 0.5;
+    transform: rotate3d()
+}
+
+.bgMiddle2 {
+    z-index: 10;
+    opacity: 0.75;
+}
+
+.bgBottom2 {
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+
+.waveTop {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 4s linear infinite;
+    animation-delay: 4s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 8s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 16s linear infinite;
+}
